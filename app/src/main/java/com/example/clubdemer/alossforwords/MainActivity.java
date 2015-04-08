@@ -4,6 +4,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.view.View;
+import android.content.pm.ActivityInfo;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +15,17 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Quit Button
+        Button quitButton = (Button) findViewById(R.id.quit);
+        quitButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                System.exit(0);
+            }
+        });
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
     }
 
 
