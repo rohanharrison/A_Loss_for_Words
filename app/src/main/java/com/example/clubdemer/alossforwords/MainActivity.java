@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.view.View;
 import android.content.pm.ActivityInfo;
 
-
 public class MainActivity extends ActionBarActivity {
 
     @Override
@@ -24,8 +23,15 @@ public class MainActivity extends ActionBarActivity {
                 System.exit(0);
             }
         });
+        //PassPlay Button
+        Button passButton = (Button) findViewById(R.id.playPass);
+        passButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                setContentView(R.layout.pass_play);
+            }
+        });
+        //Landscape
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
     }
 
 
