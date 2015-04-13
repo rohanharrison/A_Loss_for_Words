@@ -18,7 +18,6 @@ public class MainActivity extends ActionBarActivity {
         //Quit Button
         Button quitButton = (Button) findViewById(R.id.quit);
         quitButton.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View view) {
                 System.exit(0);
             }
@@ -30,7 +29,7 @@ public class MainActivity extends ActionBarActivity {
                 setContentView(R.layout.pass_play);
             }
         });
-        //Landscape
+        //Force Landscape
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 

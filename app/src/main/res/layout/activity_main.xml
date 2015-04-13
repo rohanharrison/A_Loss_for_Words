@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="A loss for Words"
-        android:textSize="52px"
+        android:textSize="30sp"
         android:textColor="#4a4543"
         android:id="@+id/title"
         android:layout_alignParentTop="true"
