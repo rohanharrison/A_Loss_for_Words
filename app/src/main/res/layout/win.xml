@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A7DBD8" >
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Win"
+        android:textColor="#4a4543"
+        android:textSize="40sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/achievement"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Replay"
+        android:id="@+id/replay"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

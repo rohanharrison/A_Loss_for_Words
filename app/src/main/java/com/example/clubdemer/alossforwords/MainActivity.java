@@ -7,26 +7,49 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
 import android.content.pm.ActivityInfo;
+import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //Quit Button
         Button quitButton = (Button) findViewById(R.id.quit);
         quitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                System.exit(0);
+                finish();
             }
         });
-        //PassPlay Button
-        Button passButton = (Button) findViewById(R.id.playPass);
+        //Play Button
+        Button passButton = (Button) findViewById(R.id.compPlay);
         passButton.setOnClickListener(new View.OnClickListener() {
+            Logic log = new Logic();
             public void onClick(View view) {
-                setContentView(R.layout.pass_play);
+                setContentView(R.layout.play);
+                //Next Button
+                Button nextButton = (Button) findViewById(R.id.nextPlayer);
+                nextButton.setOnClickListener(new View.OnClickListener() {
+                    EditText theText = (EditText) findViewById(R.id.wordView);
+                    public void onClick(View view) {
+                        Result result = log.requestMove(theText.getText().toString());
+                        String theWord = result.getNewWord();
+                        theText.setText(theWord);
+                        int terminate = result.getStatus();
+                        if (terminate == 1)
+                        {
+
+                            winLoss(theWord, true);
+                        }
+                        else if (terminate == -1)
+                        {
+
+                            winLoss(theWord, false);
+                        }
+                    }
+                });
             }
         });
         //Force Landscape
@@ -54,5 +77,24 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void winLoss(String word, boolean winLoss)
+    {
+        String[] achieves = GooglePlay.checkAchieve(word, winLoss);
+        if(winLoss)  setContentView(R.layout.win);
+        else    setContentView(R.layout.loss);
+        EditText theText = (EditText) findViewById(R.id.achievement);
+        theText.setKeyListener(null);
+        for (String achieve : achieves) {
+            theText.setText(achieve);
+        }
+        //Replay Button
+        Button replayButton = (Button) findViewById(R.id.replay);
+        replayButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                setContentView(R.layout.activity_main);
+            }
+        });
     }
 }

@@ -9,10 +9,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pass &amp; Play"
-        android:id="@+id/playPass"
+        android:text="Play"
+        android:id="@+id/compPlay"
         android:layout_above="@+id/quit"
-        android:layout_alignStart="@+id/playOnline" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -20,16 +20,9 @@
         android:text="Quit"
         android:id="@+id/quit"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/playPass"
-        android:layout_alignStart="@+id/playPass" />
+        android:layout_alignEnd="@+id/compPlay"
+        android:layout_alignStart="@+id/compPlay" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Play Online"
-        android:id="@+id/playOnline"
-        android:layout_above="@+id/playPass"
-        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
