@@ -13,7 +13,26 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("LogicDebugInfo: ", "Test");
+
+        Log.d("LogicDebugInfo: ", "Random char");
+        Result r = Logic.requestMove("");
+        Log.d("LogicDebugInfo:", r.getNewWord());
+        Log.d("LogicDebugInfo:", r.getStatus() + "");
+
+        Log.d("LogicDebugInfo: ", "Player loses");
+        Result r2 = Logic.requestMove("ca");
+        Log.d("LogicDebugInfo:", r2.getNewWord());
+        Log.d("LogicDebugInfo:", r2.getStatus() + "");
+
+        Log.d("LogicDebugInfo: ", "Player wins");
+        Result r3 = Logic.requestMove("word");
+        Log.d("LogicDebugInfo:", r3.getNewWord());
+        Log.d("LogicDebugInfo:", r3.getStatus() + "");
+
+        Log.d("LogicDebugInfo: ", "Game Continue");
+        Result r4 = Logic.requestMove("wo");
+        Log.d("LogicDebugInfo:", r4.getNewWord());
+        Log.d("LogicDebugInfo:", r4.getStatus() + "");
     }
 
 

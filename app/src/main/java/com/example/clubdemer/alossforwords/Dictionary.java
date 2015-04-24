@@ -9,6 +9,10 @@ import java.util.Scanner;
  */
 public class Dictionary {
     static ArrayList<String> requestList(String sub) {
-        return null;
+        ArrayList<String> dict = new ArrayList<>();
+        dict.add("cart");
+        dict.add("words");
+
+        return dict;
     }
 }
