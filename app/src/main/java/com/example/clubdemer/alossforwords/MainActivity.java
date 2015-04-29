@@ -16,13 +16,13 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Gogle Play
         try {
             AssetManager assets = getAssets();
             GP = new GooglePlay(assets);
         } catch (IOException e) {
             System.out.println("failed");
         }
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
