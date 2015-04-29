@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by clubdemer on 4/6/15.
@@ -23,7 +24,7 @@ public class Logic {
      * @return Result object containing either new or current string in play and the current game
      *          state. 0 for continue, -1 for a player loss, 1 for an AI loss
      */
-    static Result requestMove(String sub) {
+    static Result requestMove(String sub, Scanner scan) {
         Calendar c = Calendar.getInstance();
         Random r = new Random(c.getTimeInMillis());
         ArrayList<String> currentList;
@@ -38,7 +39,7 @@ public class Logic {
         }
 
         currentString = sub;
-        currentList = Dictionary.requestList(currentString);
+        currentList = Dictionary.requestList(currentString, scan);
 
         //Player loss check
         int f = checkList(currentList, currentString);

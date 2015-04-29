@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Created by clubdemer on 4/6/15.
  */
 public class Dictionary {
-    static ArrayList<String> requestList(String sub) {
+    static ArrayList<String> requestList(String sub, Scanner scan) {
         ArrayList<String> dict = new ArrayList<>();
         ArrayList<String> ret = new ArrayList<>();
         dict.add("cart");
