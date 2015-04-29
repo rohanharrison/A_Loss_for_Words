@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ALossforWords.iml" filepath="$PROJECT_DIR$/ALossforWords.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A_Loss_for_Words-Dictionary.iml" filepath="$PROJECT_DIR$/A_Loss_for_Words-Dictionary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
