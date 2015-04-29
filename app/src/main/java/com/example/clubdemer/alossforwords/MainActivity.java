@@ -9,13 +9,24 @@ import android.view.View;
 import android.content.pm.ActivityInfo;
 import android.widget.EditText;
 
+import java.util.Scanner;
+
 public class MainActivity extends ActionBarActivity {
+    GooglePlay GP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try {
+            AssetManager assets = getAssets();
+            GP = new GooglePlay(assets);
+        } catch (IOException e) {
+            System.out.println("failed");
+        }
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //Quit Button
         Button quitButton = (Button) findViewById(R.id.quit);
         quitButton.setOnClickListener(new View.OnClickListener() {
@@ -23,12 +34,17 @@ public class MainActivity extends ActionBarActivity {
                 finish();
             }
         });
+
         //Play Button
         Button passButton = (Button) findViewById(R.id.compPlay);
         passButton.setOnClickListener(new View.OnClickListener() {
-            Logic log = new Logic();
+
+            //Dictionary
+            Scanner scan =  new Scanner(getResources().openRawResource(R.raw.dictionary));
+            Logic log = new Logic(scan);
             public void onClick(View view) {
                 setContentView(R.layout.play);
+
                 //Next Button
                 Button nextButton = (Button) findViewById(R.id.nextPlayer);
                 nextButton.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +68,7 @@ public class MainActivity extends ActionBarActivity {
                 });
             }
         });
+
         //Force Landscape
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
@@ -81,7 +98,8 @@ public class MainActivity extends ActionBarActivity {
 
     private void winLoss(String word, boolean winLoss)
     {
-        String[] achieves = GooglePlay.checkAchieve(word, winLoss);
+
+        String[] achieves = GP.checkAchieve(word, winLoss);
         if(winLoss)  setContentView(R.layout.win);
         else    setContentView(R.layout.loss);
         EditText theText = (EditText) findViewById(R.id.achievement);
