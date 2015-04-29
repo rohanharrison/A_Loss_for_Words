@@ -13,7 +13,6 @@ import java.util.Scanner;
  */
 
 public class Logic {
-
     /**
      * requestMove is responsible for the game logic. It returns a random character for the first
      * turn, checks to see if the player made a word after every player's turn, makes an AI turn
@@ -21,6 +20,7 @@ public class Logic {
      * the game.
      *
      * @param sub Current string in play
+     * @param scan Scanner object
      * @return Result object containing either new or current string in play and the current game
      *          state. 0 for continue, -1 for a player loss, 1 for an AI loss
      */
@@ -39,7 +39,8 @@ public class Logic {
         }
 
         currentString = sub;
-        currentList = Dictionary.requestList(currentString, scan);
+        Dictionary d = new Dictionary(scan);
+        currentList = d.requestList(currentString);
 
         //Player loss check
         int f = checkList(currentList, currentString);
