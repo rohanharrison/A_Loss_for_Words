@@ -1,9 +1,10 @@
 package com.example.clubdemer.alossforwords;
-
+import android.content.res.AssetManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import java.io.IOException;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +13,12 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        try {
+            AssetManager assets = getAssets();
+            GooglePlay googlePlay = new GooglePlay(assets);
+        } catch (IOException e) {
+            System.out.println("failed");
+        }
     }
 
 
