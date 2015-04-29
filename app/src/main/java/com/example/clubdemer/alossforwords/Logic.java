@@ -1,5 +1,7 @@
 package com.example.clubdemer.alossforwords;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
@@ -52,7 +54,7 @@ public class Logic {
             //return substring and 1
             return new Result(currentString, 1);
         }
-
+        Log.d("LogicDebugInfo: ", winningList.get(0));
         currentString = placeLetter(winningList, currentList, currentString, r);
 
         if (checkList(currentList, currentString) == 2) {
@@ -146,9 +148,10 @@ public class Logic {
      * checkList compares the string in play to the list of valid words containing the string to see
      * if there is a complete match, the substring is not valid, or if the game can continue
      *
-     * @param list
-     * @param sub
-     * @return
+     * @param list Current list of words that contain the substring in play
+     * @param sub Current substring in play
+     * @return 1 if the player played a substring that is not part of a word; 2 if the player or AI
+     *          formed a word; 0 if no word has been formed yet and the substring is part of a word
      */
     private static int checkList(ArrayList<String> list, String sub) {
         if (list.isEmpty()) {
@@ -163,12 +166,14 @@ public class Logic {
     }
 
     /**
+     * getWinningList returns a list of words that the AI can win with given the current list of
+     * words containing the substring in play
      *
-     * @param list
-     * @return
+     * @param list Current list of words containing the substring in play
+     * @return List of words that the AI can win with, or an empty list
      */
     private static ArrayList<String> getWinningList(ArrayList<String> list) {
-        ArrayList<String> rtnList = new ArrayList<String>();
+        ArrayList<String> rtnList = new ArrayList<>();
         for (String s : list) {
             if ( (s.length() & 1) == 0) //if of even length, add word
                 rtnList.add(s);
@@ -177,9 +182,10 @@ public class Logic {
     }
 
     /**
+     * winList determines whether or not the AI is forced to play a word
      *
-     * @param winList
-     * @return
+     * @param winList List of words that the AI can win with (if any)
+     * @return True if the AI has no winning options; False otherwise
      */
     private static boolean forcedWord(ArrayList<String> winList) {
         if (winList.size() == 0)

@@ -14,27 +14,21 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("LogicDebugInfo: ", "Random char");
+        Log.d("LogicDebugInfo0: ", "Random char");
         Result r = Logic.requestMove("");
-        Log.d("LogicDebugInfo:", r.getNewWord());
-        Log.d("LogicDebugInfo:", r.getStatus() + "");
+        Log.d("LogicDebugInfo0:", r.getNewWord());
+        Log.d("LogicDebugInfo0:", r.getStatus() + "");
 
-        Log.d("LogicDebugInfo: ", "Player loses");
+        Log.d("LogicDebugInfo1: ", "Game Continue");
         Result r2 = Logic.requestMove("ca");
-        Log.d("LogicDebugInfo:", r2.getNewWord());
-        Log.d("LogicDebugInfo:", r2.getStatus() + "");
+        Log.d("LogicDebugInfo1:", r2.getNewWord());
+        Log.d("LogicDebugInfo1:", r2.getStatus() + "");
 
-        Log.d("LogicDebugInfo: ", "Player wins");
+        Log.d("LogicDebugInfo2: ", "Player wins");
         Result r3 = Logic.requestMove("word");
-        Log.d("LogicDebugInfo:", r3.getNewWord());
-        Log.d("LogicDebugInfo:", r3.getStatus() + "");
-
-        Log.d("LogicDebugInfo: ", "Game Continue");
-        Result r4 = Logic.requestMove("wo");
-        Log.d("LogicDebugInfo:", r4.getNewWord());
-        Log.d("LogicDebugInfo:", r4.getStatus() + "");
+        Log.d("LogicDebugInfo2:", r3.getNewWord());
+        Log.d("LogicDebugInfo2:", r3.getStatus() + "");
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

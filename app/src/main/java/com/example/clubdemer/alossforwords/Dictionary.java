@@ -10,9 +10,14 @@ import java.util.Scanner;
 public class Dictionary {
     static ArrayList<String> requestList(String sub) {
         ArrayList<String> dict = new ArrayList<>();
+        ArrayList<String> ret = new ArrayList<>();
         dict.add("cart");
         dict.add("words");
 
-        return dict;
+        for (String s : dict) {
+            if (s.contains(sub))
+                ret.add(s);
+        }
+        return ret;
     }
 }
