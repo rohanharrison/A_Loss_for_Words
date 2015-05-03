@@ -11,9 +11,22 @@ import android.widget.EditText;
 
 import java.util.Scanner;
 
+/**
+ * Created by Interface.
+ *
+ * The MainActivity class will be the main activity for the Loss for Words Application.
+ * It will handle the user interface and all user related aspects of game play
+ */
 public class MainActivity extends ActionBarActivity {
     GooglePlay GP;
 
+    /**
+     * onCreate will set up the start of the program. When all game objects are being created,
+     * button handlers and all of the different tools required by our application will also
+     * be created.
+     *
+     * @param savedInstanceState data needed for the application to run
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Gogle Play
@@ -73,7 +86,13 @@ public class MainActivity extends ActionBarActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
-
+    /**
+     * This method will ad the necessary options to the action bar when the action bar
+     * is present
+     *
+     * @param menu the menu to create
+     * @returns true that the options menu was created
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -81,6 +100,13 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
+    /**
+     * This method handles action bar item clicks.
+     *
+     *
+     * @param item the item in the collection
+     * @return true when everything went well with the action handler
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -96,6 +122,12 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * This private function handles the end of gameplay when a user has either won, or ultimately
+     * lost.
+     * @param word
+     * @param winLoss
+     */
     private void winLoss(String word, boolean winLoss)
     {
 

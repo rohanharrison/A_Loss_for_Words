@@ -1,7 +1,8 @@
 package com.example.clubdemer.alossforwords;
 
 /**
- * Created by rharriso on 4/13/2015.
+ * Created by Interface on 4/13/2015.
+ * The SlashActivity class will make a splash screen for the start up of our program
  */
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +13,10 @@ public class SplashActivity extends Activity {
 
     private static int SPLASH_TIME_OUT = 250; //Time (set for 3000 in production)
 
+    /**
+     * onCreate will create our slash screen and hold it for 250 millis
+     * @param savedInstanceState data needed for the application to run
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,7 +1,8 @@
 package com.example.clubdemer.alossforwords;
 
 /**
- * Created by Rohan on 4/22/2015.
+ * Created by  interface team on 4/22/2015.
+ * The result class will hold results that are passed between logic and interface
  */
 public class Result {
     String newWord; //the new word created by the ai
